@@ -1,0 +1,33 @@
+:host{
+    --base-parallax--height-panorama:40;
+    --base-parallax--height-portrait:150;
+    --base-parallax--transition-time: .5s;
+    position: relative;
+    width:100%;
+    display:block;
+    padding-top: calc(var(--base-parallax--height-panorama) * 1%);
+    overflow: hidden;
+}
+::slotted(.parallax),
+::slotted([positionWrapper]){
+    transition: transform var(--base-parallax--transition-time);
+}
+::slotted(.parallax){
+    position: absolute;
+    inset:0 auto auto 0;
+    width:100%;
+}
+:host([noSmoothness]) ::slotted(.parallax),
+:host([noSmoothness]) ::slotted([positionWrapper]){
+    transition: unset;
+}
+@media (orientation: portrait) {
+    :host{
+        padding-top: calc(var(--base-parallax--height-portrait) * 1%);
+    }
+    ::slotted(img.parallax){
+        object-fit: cover;
+        width:100%;
+        height:120%;
+    }
+}

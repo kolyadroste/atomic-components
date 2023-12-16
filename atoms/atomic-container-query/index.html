@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./src/atomic-container-query.mjs"></script>
+    <style>
+        body{ padding:50px; background:black; color:white;}
+
+        h2{font-family:"Arial";}
+        .revealButton{
+            border:solid 1px grey;
+            padding:10px;
+            cursor:pointer;
+        }
+
+        .reveal-pane{
+            padding:50px;
+            background:white;
+        }
+        .block{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            height:200px;
+        }
+        .color-red{
+            background:red !important;
+        }
+        .color-blue{
+            background:blue;
+        }
+        [bordered]{
+            border:solid 3px white;
+        }
+    </style>
+</head>
+<body style="margin:0;">
+
+<h1>container query demo</h1>
+<p>only one element at time can be addressed by the container query to avoid unexpected behaviour</p>
+
+
+<h4>Container with slotted content</h4>
+<atomic-container-query target="" config="500::add[attr:bordered],800::add[class:color-red],1200::remove[class:color-red]" >
+    <div class="block color-blue">
+        Block
+    </div>
+</atomic-container-query>
+
+<h4>Container with using the target attribute</h4>
+<atomic-container-query target="#block" config="500::add[attr:bordered],800::add[class:color-red],1200::remove[class:color-red]" >
+</atomic-container-query>
+<div id="block2" class="block color-blue">
+    Block
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit-Element App</title>
+
+    <script type="module" src="./src/atomic-autocomplete.js"></script>
+    <style>
+      body{
+        font-family: Arial;
+        text-decoration: none;
+        background: #eeeeee; padding:50px;
+      }
+      p{margin-bottom:20px;}
+      .button::part(link){
+        padding:10px 30px;
+      }
+      .center{text-align:center}
+      .nav{
+        display:flex;
+        list-style-type: none;
+      }
+      .nav li{
+        display:inline-block; padding:10px;
+      }
+    </style>
+  </head>
+  <body>
+  <h3>Atomic Autocomplete</h3>
+  <p>
+
+  </p>
+  <h5>Without slotted input</h5>
+  <p>and slotted data</p>
+  <div class="center">
+    <atomic-autocomplete>
+      <script slot="data" type="application/json">
+        ["Haus","Häuser","Wald","Stadt","Rose","Huhn","Bär","Affe","Apfel"]
+      </script>
+    </atomic-autocomplete>
+  </div>
+
+
+  <h5>With slotted input</h5>
+  <p>and request Uri given</p>
+  <div class="center">
+    <atomic-autocomplete  query='{&quot;url&quot;:&quot;&quot;}'>
+      <label slot="input">
+        Suche:
+        <input type="text" placeholder="Type here x" />
+      </label>
+      <script slot="query" type="application/json">
+        {
+          "url":"https://jsonplaceholder.typicode.com/todos",
+          "method":"GET",
+          "entrypoint":"",
+          "attributes":"title",
+          "postData":{
+            "info":"postData is not used in this example",
+            "endpoint":""
+          }
+        }
+      </script>
+    </atomic-autocomplete>
+  </div>
+  </body>
+</html>

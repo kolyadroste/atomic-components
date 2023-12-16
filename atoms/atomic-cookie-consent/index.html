@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./src/atomic-cookie-consent.js"></script>
+    <style>
+        body{ padding:50px; background:#555555; color:white;}
+
+        h2{font-family:"Arial";}
+        .revealButton{
+            border:solid 1px grey;
+            padding:10px;
+            cursor:pointer;
+        }
+
+        .reveal-pane{
+            padding:50px;
+            background:white;
+        }
+        .block{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            height:200px;
+        }
+        .color-red{
+            background:red !important;
+        }
+        .color-blue{
+            background:blue;
+        }
+        [bordered]{
+            border:solid 3px white;
+        }
+    </style>
+</head>
+<body style="margin:0;">
+
+<h1>Cookie Consent</h1>
+
+<h4>Consent a Youtube Video</h4>
+<atomic-cookie-consent valuesHTMLencoded identifier="youtube" contentProtector="Youtube" contentName="Youtube Video">
+    <script type="text/x-gdpr-protected">
+        <iframe src="https://www.youtube.com/embed/YOvELcmrLuE" height="400" width="100%"></iframe>
+    </script>
+</atomic-cookie-consent>
+<h4>When Button "immer" is pressed, this video should shown also</h4>
+<atomic-cookie-consent valuesHTMLencoded identifier="youtube" contentProtector="Youtube" contentName="Youtube Video">
+    <script type="text/x-gdpr-protected">
+        <iframe src="https://www.youtube.com/embed/YOvELcmrLuE" height="400" width="100%"></iframe>
+    </script>
+</atomic-cookie-consent>
+
+<h4>Test a different cookie</h4>
+<atomic-cookie-consent valuesHTMLencoded identifier="test" contentProtector="Test" contentName="Test Video">
+    <script type="text/x-gdpr-protected">
+        <iframe src="https://www.youtube.com/embed/YOvELcmrLuE" height="300" width="100%"></iframe>
+    </script>
+</atomic-cookie-consent>
+
+<h2>##################</h2>
+<atomic-cookie-consent valueshtmlencoded="" identifier="jobportal" contentname="Jobportal Lebenshilfe" contentprotector="Lebenshilfe Kärnten" linkprivacypolicy="/datenschutz">
+    <script type="text/x-gdpr-protected">
+			  		<iframe src="https://bewerbung.lebenshilfe-kaernten.at/bewerber-web/?companyEid=*#positions" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				</script>
+    <div slot="allowButton">
+        <button allowbt="" class="button-allow" data-identifier="jobportal" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Jobportal Lebenshilfe laden!
+        </button>
+    </div>
+    <div slot="allowAllButton" class="cookie-consent-replacement">
+        <button allowbt="" class="button-allow accept" data-identifier="jobportal" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Jobportal Lebenshilfe "immer" laden!
+        </button>
+    </div>
+</atomic-cookie-consent>
+
+<atomic-cookie-consent valueshtmlencoded="" identifier="fbvideo" contentname="Facebook Video" contentprotector="Facebook" linkprivacypolicy="https://www.facebook.com/business/gdpr">
+    <script type="text/x-gdpr-protected">
+			  		<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Flebenshilfe.kaernten%2Fvideos%2F266457725192556%2F&amp;show_text=false&amp;width=600" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				</script>
+    <div slot="allowButton">
+        <button allowbt="" class="button-allow" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Facebook Video laden!
+        </button>
+    </div>
+    <div slot="allowAllButton" class="cookie-consent-replacement">
+        <button allowbt="" class="button-allow accept" data-identifier="fbvideo" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Facebook Video "immer" laden!
+        </button>
+    </div>
+</atomic-cookie-consent>
+<h2>Google Maps - with Slotted Text Output</h2>
+<atomic-cookie-consent valueshtmlencoded="" identifier="googlemaps" contentname="Google Maps" contentprotector="Google" linkprivacypolicy="https://policies.google.com/privacy">
+    <script type="text/x-gdpr-protected">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2621.48814771753!2d9.137501315942329!3d48.92514350395783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799d3fcc4e54201%3A0x40633f0a6fbabe8a!2sHeilbronner+Str.+60%2C+71732+Tamm!5e0!3m2!1sde!2sde!4v1446199564021" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</script>
+    <div slot="allowButton">
+        <button allowbt="" class="button-allow" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Google Maps laden!
+        </button>
+    </div>
+    <div slot="allowAllButton" class="cookie-consent-replacement">
+        <button allowbt="" class="button-allow accept" data-identifier="youtube" style="border: 2px solid #008227; padding:7px 15px; display:inline-flex; color:#008227; margin-bottom:10px">
+            Google Maps "immer" laden!
+        </button>
+    </div>
+</atomic-cookie-consent>
+
+
+</body>
+</html>
+

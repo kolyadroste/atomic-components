@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <script type="module" src="./src/atomic-loading-overlay.js"></script>
+
+    <style>
+        p {
+            margin-bottom: 20px;
+        }
+        body{background: #094e84; color: white; font-family: arial;}
+        body a{ color: white}
+    </style>
+</head>
+<body>
+    <h1>Loading Overlay</h1>
+
+    <atomic-loading-overlay label="Daten werden geladen" id="loader"></atomic-loading-overlay>
+
+    <atomic-loading-overlay label="oben links" top left open transparent></atomic-loading-overlay>
+    <atomic-loading-overlay label="oben rechts" top right open transparent></atomic-loading-overlay>
+
+    <atomic-loading-overlay label="unten rechts" bottom right open transparent></atomic-loading-overlay>
+    <atomic-loading-overlay label="unten links" bottom left open transparent></atomic-loading-overlay>
+
+    <script>
+        document.querySelector('#loader').setAttribute('open',true);
+    </script>
+</body>
+</html>

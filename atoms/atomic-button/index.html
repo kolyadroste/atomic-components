@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit-Element App</title>
+
+    <script type="module" src="./src/atomic-button.js"></script>
+    <style>
+      body{
+        font-family: Arial;
+        text-decoration: none;
+        background: #eeeeee; padding:50px;
+      }
+      p{margin-bottom:20px;}
+      .button::part(link){
+        padding:10px 30px;
+      }
+      .center{text-align:center}
+      .nav{
+        display:flex;
+        list-style-type: none;
+      }
+      .nav li{
+        display:inline-block; padding:10px;
+      }
+    </style>
+  </head>
+  <body>
+  <h3>Base Button</h3>
+  <p>
+
+  </p>
+  <div class="center">
+    <atomic-button>
+      <a href="">Button</a>
+    </atomic-button>
+
+    <atomic-button transparent>
+      <a href="">Button transparent</a>
+    </atomic-button>
+    <atomic-button success>
+      <a href="">Button success</a>
+    </atomic-button>
+    <atomic-button alert>
+      <a href="">Button alerts</a>
+    </atomic-button>
+  </div>
+
+  </body>
+</html>

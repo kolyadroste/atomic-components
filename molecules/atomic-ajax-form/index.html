@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>&lt;my-element> Demo</title>
+    <script type="module" src="./src/atomic-ajax-form.js"></script>
+    <script type="module" src="./demo-resources/atomic-loading-overlay.js"></script>
+
+    <style>
+        p {
+            margin-bottom: 20px;
+        }
+        body{background:#015699; color: white; padding:50px}
+        body a{ color: white}
+        label{display:block; margin-bottom: 20px;}
+        input{border:none; padding:10px; border-radius: 3px;}
+        label span{display:inline-block; width:100px}
+        .button{padding:20px; background:darkred; color:white; border:none;}
+        .frame{border:solid 1px white; padding:20px; max-width:1200px; margin: auto; margin-bottom:30px;}
+    </style>
+</head>
+
+<body>
+<h1>Ajax Form</h1>
+<p>This Component takes slotted content and searches for a Form. When found it takes the action and load it by an ajax request.</p>
+<p>It is possible to have multiple Form steps, including a success page</p>
+<br><br>
+
+<atomic-loading-overlay id="loader"></atomic-loading-overlay>
+<div class="frame">
+    <p>Form with multiple pages</p>
+    <h2 id="form1remove">This should be removed on first submit by the callback</h2>
+    <atomic-ajax-form delay="1000" loaderSelector="#loader" loaderAttribute="open">
+        <script slot="callback" type="application/script">
+            ((data)=>{
+                document.getElementById('form1remove').remove();
+                console.log('callback called');
+                console.log(data);
+            });
+        </script>
+        <form action="form.page2.html" id="form1" enctype="multipart/form-data" method="post" name="fileinfo">
+            <h2>Form Seite 1</h2>
+            <label for="f1-gender">Geschlecht:</label>
+            <input id="f1-gender" type="text" name="gender" >
+
+
+            <label for="f1-firstname">Vorname:</label>
+            <input id="f1-firstname" type="text" name="firstname">
+
+
+            <label for="f1-lastname">Nachname:</label>
+            <input id="f1-lastname" type="text" name="lastname">
+
+            <label for="f1-phone">Telefon:</label>
+            <input id="f1-phone" type="text" name="phone"/>
+            <br><br>
+            <input type="submit" class="button" placeholder="Absenden"/>
+        </form>
+    </atomic-ajax-form>
+
+</div>
+
+<div class="frame">
+    <p>Form with result shown in a target-container<br>
+        the attribute <strong>deplay</strong> is only for demo purpose</p>
+    <p>attributes used: url, resultSelector, callback, loaderSelector, loaderAttribute</p>
+    <atomic-ajax-form action="form" resultSelector="#form2-result" callback="document.callbackFunc" delay="1000" loaderSelector="#loader" loaderAttribute="open">
+        <h2>Form Seite 1</h2>
+        <form action="form.success.html">
+            <label>
+                <span>Geschlecht:</span>
+                <input type="text">
+            </label>
+            <label>
+                <span>Vorname:</span>
+                <input type="text">
+            </label>
+            <label>
+                <span>Nachname:</span>
+                <input type="text">
+            </label>
+            <label>
+                <span>Telefon:</span>
+                <input type="text">
+            </label>
+
+            <input type="submit" class="button" placeholder="Absenden"/>
+        </form>
+    </atomic-ajax-form>
+    <br>
+
+    <div class="frame">
+        <p>Resultcontainer</p>
+        <div id="form2-result">
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    document.callbackFunc = (data=null)=>{
+        console.log("callbackFunc called");
+    };
+</script>
+
+</body>
+</html>

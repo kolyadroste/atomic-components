@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=http://localhost:3000/
+HostUrl=https://fonts.googleapis.com/css?family=Roboto:300,400,500

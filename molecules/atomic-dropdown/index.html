@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:br="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script src="./src/atomic-dropdown.js" type="module"></script>
+
+    <style>
+        body{background: #eee; padding:50px; font-family: arial;}
+        .button{
+            color:black;
+            margin-top:30px;
+        }
+        .flex-column{
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-row{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        dt{font-weight:bold}
+        dd{margin-bottom: 10px;}
+    </style>
+</head>
+<body style="margin:0;">
+
+
+<div style="max-width:800px">
+    <h2>Stahl Dropdown demo:</h2>
+    <p>available attributes:</p>
+    <dl>
+        <dt>group (group="group1")</dt>
+        <dd>- helps to close other dropdows that in a group</dd>
+        <dt>openOnHover</dt>
+        <dd>- as the name say</dd>
+        <dt>relative</dt>
+        <dd>- shifts following content</dd>
+    </dl>
+
+    <p>available css variables:</p>
+    <ul>
+        <li>--atomic-dropdown-animation-function</li>
+        <li>--atomic-dropdown-animation-time</li>
+        <li>--atomic-dropdown-width</li>
+        <li>--atomic-dropdown-content-background</li>
+        <li>--atomic-dropdown-padding</li>
+        <li>--atomic-dropdown-border</li>
+        <li>--atomic-dropdown-space-top</li>
+
+    </ul>
+    <br>
+    <style>
+        atomic-dropdown{
+            --atomic-dropdown-multiselect--width:150px;
+            --atomic-dropdown-multiselect--row-gap:5px;
+            margin-bottom:20px
+        }
+        .s-margin-bottom-small{
+            margin-bottom: 10px;
+        }
+    </style>
+    <p>select checboxes with pre-selection (multiselect)</p>
+    <atomic-dropdown animation="ease-in-out">
+            <div slot="click-element">
+                <a href="/">Open Dropdown</a>
+            </div>
+
+            <div class="flex-column">
+                <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+                <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+                <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+                <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+                <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            </div>
+    </atomic-dropdown>
+
+    <br>
+    <h3>Dropdown with param "relative"</h3>
+    <atomic-dropdown relative animation="ease-in-out" style="display:block;">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+
+        <div class="flex-column">
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+        </div>
+    </atomic-dropdown>
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+    <br><br>
+    <h3>Dropdown with param "openOnHover"</h3>
+    <atomic-dropdown openOnHover animation="ease-in-out">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+
+        <div class="flex-column">
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+        </div>
+    </atomic-dropdown>
+
+
+    <h3>Dropdown with param "openOnHover, --atomic-dropdown-space-top:30px;"</h3>
+    <atomic-dropdown openOnHover animation="ease-in-out" style="--atomic-dropdown-space-top:30px;">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+
+        <div class="flex-column">
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+        </div>
+    </atomic-dropdown>
+
+    <h3>Dropdown with param "openOnHover openLeft"</h3>
+    <p>This can be used to avoid that the dropdown content moves outside of the window canvas on the right</p>
+    <atomic-dropdown openOnHover openLeft animation="ease-in-out" style="--atomic-dropdown-space-top:30px; margin-left:80%">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+
+        <div class="flex-row">
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+        </div>
+    </atomic-dropdown>
+
+
+    <h3>Dropdown with param openLeft"</h3>
+    <p>This can be used to avoid that the dropdown content moves outside of the window canvas on the right</p>
+    <atomic-dropdown animation="ease-in-out" openLeft  style="--atomic-dropdown-space-top:30px; margin-left:80%">
+        <div slot="click-element">
+            <a href="/">Open Dropdown </a>
+        </div>
+
+        <div class="flex-column" style="width:300px;">
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+        </div>
+    </atomic-dropdown>
+
+    <h3>Dropdowns with param "group="g1"</h3>
+    <p>groupmembers are closed when the current is opened</p>
+    <atomic-dropdown group="g1">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+        <div class="flex-column">
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+        </div>
+    </atomic-dropdown>
+
+    <atomic-dropdown group="g1">
+        <div slot="click-element">
+            <a href="/">Open Dropdown</a>
+        </div>
+
+        <div class="flex-column">
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+            <a href="/"><atomic-button class="s-margin-bottom-small">Subentry</atomic-button></a>
+        </div>
+    </atomic-dropdown>
+    <br><br>
+
+    <h3>Dropdown with param openLeft"</h3>
+    <p>This can be used to avoid that the dropdown content moves outside of the window canvas on the right</p>
+    <atomic-dropdown animation="ease-in-out" openLeft  style="--atomic-dropdown-space-top:30px; margin-left:80%">
+        <div slot="click-element">
+            <a href="/">Open Dropdown </a>
+        </div>
+
+        <div class="flex-column" style="width:300px;">
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+            <atomic-button class="s-margin-bottom-small">Subentry</atomic-button>
+        </div>
+    </atomic-dropdown>
+
+    <br><br>    <br><br>    <br><br>    <br><br>    <br><br>
+
+</div>
+
+
+</body>
+</html>
+

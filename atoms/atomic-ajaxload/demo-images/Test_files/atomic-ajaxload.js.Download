@@ -1,0 +1,38 @@
+export default class AtomicAjaxload extends HTMLElement {
+    constructor() {
+        super();
+        this.shadowDom = this.attachShadow({mode: 'open'});
+        this.shadowDom.innerHTML = `
+            <style>
+                :host{
+                    display: block;
+                }
+            </script>
+            <slot></slot> 
+        `;
+    }
+
+    get src() {
+        return this.getAttribute('src');
+    }
+
+    connectedCallback() {
+        // load content provided by the src attribute with fetch method
+        this._loadContent(this.src);
+    }
+
+    _loadContent(src) {
+        let root = this;
+        fetch(src)
+            .then(response => response.text())
+            .then(data => {
+                root.innerHTML = data;
+            }).catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+if (customElements.get('atomic-ajaxload') === undefined) {
+    customElements.define('atomic-ajaxload', AtomicAjaxload);
+}

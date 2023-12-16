@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./src/atomic-slider.js"></script>
+    <script type="module" src="./src/atomic-slider-responsive-cols.js"></script>
+    <script type="module" src="./src/atomic-slider-dotnav-button.js"></script>
+    <script type="module" src="./src/atomic-slider-prevnext-button.js"></script>
+    <script type="module" src="./demo-js/atomic-figcaption.js"></script>
+    <style>
+        :root{
+            --bs-gutter-x: 1.5rem;
+        }
+
+        body{ padding:50px; background:black; color:white; font-family: arial;}
+        body p{color:#ccc;}
+        h2{font-family:"Arial";}
+        [bordered]{
+            border:solid 3px white;
+        }
+        @keyframes fadeIn2 {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        .animtest {
+            animation-duration: 2s;
+            animation-name: fadeIn2;
+            animation-iteration-count: 1;
+        }
+        .asrc-slide.col{
+            display: flex;
+            position: relative;
+            background:#333;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .asrc-slide.col img {
+            width: 100%;
+            height:auto;
+        }
+        .row>* {
+        }
+    </style>
+</head>
+<body style="margin:0;">
+<h1 class="animtest">Webcomponent Slider</h1>
+<p>This slider supports responsive multicolumn content (see second example). The demo shows only images as content, but you can put in any html you want.</p>
+
+<h3>slide mode (default)</h3>
+
+<atomic-slider time="221500">
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-backwards" message="" title="Previous"></atomic-slider-prevnext-button>
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-forward" message="" title="Next" ></atomic-slider-prevnext-button>
+
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/pastries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/berries2.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+        <div style="height:400px; width:100%; background: url('demo-images/tomatoes.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/pastries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/spaghetti.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+        <div style="height:400px; width:100%; background: url('demo-images/splashing.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/raspberries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+
+</atomic-slider>
+
+<h3>slide mode (slide)</h3>
+<atomic-slider time="221500" targetNavDots="#navDotWrapper" slideMode="slide">
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-backwards" message="" title="Previous"></atomic-slider-prevnext-button>
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-forward" message="" title="Next" ></atomic-slider-prevnext-button>
+
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/pastries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/berries2.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+        <div style="height:400px; width:100%; background: url('demo-images/tomatoes.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/pastries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/spaghetti.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+        <div style="height:400px; width:100%; background: url('demo-images/splashing.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+    <div>
+
+        <div style="height:400px; width:100%; background: url('demo-images/raspberries.jpg') no-repeat; background-size: cover;"></div>
+
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+
+    </div>
+
+</atomic-slider>
+<div id="navDotWrapper">
+    <button data-num="1">Slide 1</button>
+    <button data-num="3">Slide 3</button>
+    <button data-num="4">Slide 4</button>
+</div>
+<br>
+
+<h2>Atomic Slider with responsive columns</h2>
+<p>An extra component is used to achieve this: atomic-slider-responsive-cols<br>
+    This component reads the slider and wrap them into a wrapper slide.</p>
+<p>By default bootstrap grid classes are placed. But these classes can be configured by using rowClass="row" colClass="col-" colClassAdditional="column"</p>
+<h3>atomic-slider-responsive-cols standalone</h3>
+<atomic-slider-responsive-cols cols="0:1,500:2,1024:3,1400:6" style="margin-bottom:50px;">
+    <div id="contents">
+        <div class="asrc-slide">spalte 1</div>
+        <div class="asrc-slide">spalte 2</div>
+        <div class="asrc-slide">spalte 3</div>
+    </div>
+</atomic-slider-responsive-cols>
+
+<h3>atomic-slider-responsive-cols with atomic-slider</h3>
+<style>
+    atomic-slider-responsive-cols img{
+        height:250px !important;
+    }
+</style>
+<atomic-slider-responsive-cols cols="0:1,500:2,1024:3,1400:4" style="margin-bottom:50px;">
+    <atomic-slider time="3s">
+        <atomic-slider-prevnext-button slot="previous-next" data-action="move-backwards" message="" title="Previous"></atomic-slider-prevnext-button>
+        <atomic-slider-prevnext-button slot="previous-next" data-action="move-forward" message="" title="Next" ></atomic-slider-prevnext-button>
+
+
+        <div id="x1" class="asrc-slide">
+            <img  src="./demo-images/pastries.jpg" alt="" class="" >
+            <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+        </div>
+        <div id="x2" class="asrc-slide">
+            <img  src="./demo-images/spaghetti.jpg" alt="" class="">
+            <atomic-figcaption >Jelly</atomic-figcaption>
+        </div>
+        <div id="x3" class="asrc-slide">
+            <img  src="./demo-images/cookies.jpg" alt="" class="">
+        </div>
+        <div id="x4" class="asrc-slide">
+            <img  src="./demo-images/tomatoes.jpg" alt="" class="">
+            <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+        </div>
+        <div id="x5" class="asrc-slide">
+            <img  src="./demo-images/berry.jpg" alt="" class="">
+            <atomic-figcaption class="bottom left">Jelly</atomic-figcaption>
+        </div>
+        <div id="x6" class="asrc-slide">
+            <img  src="./demo-images/berries2.jpg" alt="" class="">
+        </div>
+        <div id="x7" class="asrc-slide">
+            <img  src="./demo-images/spaghetti.jpg" alt="" class="">
+            <atomic-figcaption class="bottom left">Dies ist ein Caption</atomic-figcaption>
+        </div>
+        <div id="x8" class="asrc-slide">
+            <img  src="./demo-images/splashing.jpg" alt="" class="">
+            <atomic-figcaption class="bottom left">Jelly</atomic-figcaption>
+        </div>
+        <div id="x9" class="asrc-slide">
+            <img  src="./demo-images/tomatoes.jpg" alt="" class="">
+        </div>
+    </atomic-slider>
+</atomic-slider-responsive-cols>
+
+<br><br><br><br>
+<h2>Only 1 slide</h2>
+<atomic-slider time="3s">
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-backwards" message="" title="Previous"></atomic-slider-prevnext-button>
+    <atomic-slider-prevnext-button slot="previous-next" data-action="move-forward" message="" title="Next" ></atomic-slider-prevnext-button>
+
+
+    <div id="x1" class="asrc-slide">
+        <img  src="./demo-images/pastries.jpg" alt="" class="" >
+        <atomic-figcaption>Dies ist ein Caption</atomic-figcaption>
+    </div>
+</atomic-slider>
+
+</body>
+</html>
+

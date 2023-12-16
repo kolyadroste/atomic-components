@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>&lt;my-element> Demo</title>
+    <script type="module" src="./src/atomic-figcaption.js"></script>
+    <style>
+        p {
+            margin-bottom: 20px;
+        }
+        body{background: white; font-family: arial;}
+        body a{ color: white}
+        .element{
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<br>
+<div style="margin:auto; max-width:1200px">
+    <h1>Test atomic-figcaption</h1>
+    <p>
+        The ficaption component has the following options: left, bottom, top,
+    </p>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption>
+            A Capttion with default setting
+        </atomic-figcaption>
+    </figure>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption top h-center>
+            A Capttion with setting: top, h-center
+        </atomic-figcaption>
+    </figure>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption top left>
+            A Capttion with setting: top, left
+        </atomic-figcaption>
+    </figure>
+
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption v-center>
+            A Capttion with setting: top, v-center
+        </atomic-figcaption>
+    </figure>
+
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption v-center right mobile-above>
+            A Capttion with setting: top, v-center, right, mobile-above
+        </atomic-figcaption>
+    </figure>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption outside>
+            A Capttion with setting: outside
+        </atomic-figcaption>
+    </figure>
+
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption outside nowrap>
+            <p>A Capttion with with a p-tag inside and setting: outside, nowrap</p>
+        </atomic-figcaption>
+    </figure>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption>
+            <p>A Capttion with many text and setting: outside, nowrap</p>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+        </atomic-figcaption>
+    </figure>
+    <figure class="element">
+        <div style="height:200px; width:100%; background: #acd1ee"></div>
+        <atomic-figcaption top h-center>
+            A Capttion with setting: top, h-center
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+        </atomic-figcaption>
+    </figure>
+</div>
+
+
+</body>
+</html>

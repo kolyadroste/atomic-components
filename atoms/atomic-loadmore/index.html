@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script src="./src/atomic-loadmore.js" type="module"></script>
+
+    <style>
+        body{
+            font-family: Arial;
+            text-decoration: none;
+            background: #eeeeee; padding:50px;
+        }
+        .container{
+            text-align: center;
+            max-width:1200px;
+            margin:auto;
+            position:relative;
+        }
+        p{margin-bottom:40px;}
+        .button::part(link){
+            padding:10px 30px;
+        }
+        /*pp-grid > *{*/
+        /*    padding:10px;*/
+        /*}*/
+    </style>
+</head>
+<body style="margin:0;">
+
+
+    <div class="container">
+
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        <atomic-loadmore callback="document.callbackFunc" url="./content.html" class="button" timeout="1000">
+            <span>Load more</span>
+        </atomic-loadmore>
+    </div>
+
+    <script>
+        document.callbackFunc =(data)=>{
+           console.log("Custom CallBack called!");
+           console.log(data);
+        }
+    </script>
+
+
+</body>
+</html>
+

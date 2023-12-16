@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit-Element App</title>
+
+    <script type="module" src="./src/atomic-scrolltotop.js"></script>
+    <style>
+      body{
+        font-family: Arial;
+        text-decoration: none;
+        background: #0f81cc; padding:50px;
+        color:white;
+      }
+      .spacer{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        background: #0045ad;
+        content: "spacer";
+        color: white;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+  <h3>Atomic ScrollToTop</h3>
+  <p>
+    Scroll down to see the button appear. Click it to scroll to the top.
+  </p>
+  <div class="spacer">spacer</div>
+  <div class="spacer">spacer</div>
+  <div class="spacer">spacer</div>
+  <div class="spacer">spacer</div>
+  <div class="spacer">spacer</div>
+  <atomic-scrolltotop></atomic-scrolltotop>
+  </body>
+</html>

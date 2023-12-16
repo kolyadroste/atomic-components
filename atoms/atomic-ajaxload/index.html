@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./src/atomic-ajaxload.js"></script>
+    <style>
+        body{ padding:50px; background:black; color:white;}
+        * img{width:50%;}
+        .spacer{height:100vh;}
+    </style>
+</head>
+<body style="margin:0;">
+
+<h1>ajaload demo</h1>
+<p>Component loads external content as child content or into a target, when initialized</p>
+<p>Content is loaded instantanious when the initialized-attribute is set </p>
+
+<atomic-ajaxload initialized src="./ajax.content.html">
+    <p>... Daten werden geladen ...</p>
+</atomic-ajaxload>
+
+<br>
+... scroll down for next example
+
+<div class="spacer"></div>
+
+<h2>A second load</h2>
+<p>Loads Content when component comes into view</p>
+<atomic-ajaxload inViewStart src="./ajax.content2.html" callback="aCallBackFunction()">
+    <p>... Daten werden geladen ...</p>
+</atomic-ajaxload>
+
+<script>
+    aCallBackFunction = (data)=>{
+        console.log('callback called');
+        console.log("data:" + data);
+    }
+</script>
+
+</body>
+</html>
+

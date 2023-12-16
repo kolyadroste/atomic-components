@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" as="style" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" as="style" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./src/atomic-equalize.js"></script>
+    <style>
+        body{ padding:50px; background:black; color:white;}
+
+        h2{font-family:"Arial";}
+        .revealButton{
+            border:solid 1px grey;
+            padding:10px;
+            cursor:pointer;
+        }
+        .reveal-pane{
+            padding:50px;
+            background:white;
+        }
+        .grid{
+            display:grid;
+            grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+            grid-gap: 20px;
+        }
+
+        .block{
+            width:100%;
+            box-sizing: border-box;
+            min-height:100px;
+            padding:20px;
+        }
+
+        .color-red{
+            background:red !important;
+        }
+        .color-blue{
+            background:blue;
+        }
+        [bordered]{
+            border:solid 3px white;
+        }
+
+        #test{
+            padding:20px;
+            background:red;
+            display:block;
+        }
+    </style>
+</head>
+<body style="margin:0;">
+
+<h1>container query demo</h1>
+<p>only one element at time can be addressed by the container query to avoid unexpected behaviour</p>
+
+
+<h4>equalize with slotted content: beginning at 600px windowWidth, ending at 1400 </h4>
+<atomic-equalize selector="[class^='block']" class="grid" breakpoints="600::on,1400::off">
+    <div class="column">
+        <div class="block color-blue">
+            Block
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Block
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </div>
+    </div>
+    <div class="column">
+        <div class="block color-blue">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+        </div>
+    </div>
+</atomic-equalize>
+
+<!--
+<div id="test">
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et just
+</div>
+<script>
+    console.log("1111111111");
+    let test = document.querySelector('#test');
+    let h= 200 - 40;
+    var style = window.getComputedStyle ? getComputedStyle(test, null) : test.currentStyle;
+    console.log("####");
+    console.log(style.paddingBottom);
+    console.log(h);
+    test.style.height = h +'px';
+</script>
+-->
+</body>
+</html>
+

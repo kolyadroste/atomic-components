@@ -1,0 +1,28 @@
+{
+  "name": "base-top-bar",
+  "version": "0.0.0",
+  "main": "dist/base-top-bar.es.js",
+  "exports": {
+    ".": "./dist/base-top-bar.es.js"
+  },
+  "types": "types/base-top-bar.d.js",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vite-plugin-compress": "^2.1.0",
+    "vite-plugin-css-injected-by-js": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "vite": "^2.1.3",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}

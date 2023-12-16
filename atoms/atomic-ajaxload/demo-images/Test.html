@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="module" src="./Test_files/client"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="preload" href="./Test_files/css" as="style" type="text/css">
+    <link rel="preload" href="./Test_files/css(1)" as="style" type="text/css">
+    <link href="./Test_files/css" rel="stylesheet">
+    <link href="./Test_files/css(1)" rel="stylesheet">
+    <!-- Add support for Web Components to older browsers. -->
+
+    <script type="module" src="./Test_files/atomic-ajaxload.js.Download"></script>
+    <style>
+        body{ padding:50px; background:black; color:white;}
+        * img{width:50%;}
+    </style>
+</head>
+<body style="margin:0;">
+
+<h1>ajaload demo</h1>
+<p>Component loads external content as child content or into a target, when initialized</p>
+<p>Content is loaded instantanious when the initialized-attribute is set </p>
+
+<atomic-ajaxload initialized="" src="./ajax.content.html">
+
+<img src="./Test_files/building.jpg" alt="building" width="200px">
+<h2>This is ajax loaded content</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></atomic-ajaxload>
+
+<h2>A second load</h2>
+<atomic-ajaxload initialized="" src="./ajax.content2.html"><script type="module" src="./Test_files/client"></script>
+<h2>This is ajax loaded content</h2>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<img src="./Test_files/building.jpg" alt="building">
+</atomic-ajaxload>
+
+
+
+
+</body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Lit-Element App</title>
+
+    <script type="module" src="./src/atomic-checkbox.js"></script>
+    <style>
+      body{
+        font-family: Arial;
+        text-decoration: none;
+        background: #eeeeee; padding:50px;
+      }
+      p{margin-bottom:20px;}
+      .button::part(link){
+        padding:10px 30px;
+      }
+      .center{text-align:center}
+      .nav{
+        display:flex;
+        list-style-type: none;
+      }
+      .nav li{
+        display:inline-block; padding:10px;
+      }
+    </style>
+  </head>
+  <body>
+  <h3>Atomic Checkbox</h3>
+  <p>
+
+  </p>
+  <div style="padding:50px 50px 50px 350px;">
+    <label>
+      This is a Label
+      <atomic-checkbox label="With textBubbleAlign=left" textBubble textBubbleAlign="left">
+        <div slot="infoBubble">
+          To guarantee accessibility, the Attribute <b>"label"</b> should be used. <br>
+          Detailed and formated descriptions can be placed inside the default slot or simply outside of the component
+        </div>
+      </atomic-checkbox>
+    </label>
+    <br/>
+    <atomic-checkbox label="With textBubbleAlign=right" textBubble textBubbleAlign="right">
+
+    </atomic-checkbox>
+    <br>
+    <atomic-checkbox label="With textBubbleAlign=below" textBubble textBubbleAlign="below">
+    </atomic-checkbox>
+    <br>
+    <atomic-checkbox label="With textBubbleAlign=above" textBubble textBubbleAlign="above">
+    </atomic-checkbox>
+  </div>
+
+  </body>
+</html>

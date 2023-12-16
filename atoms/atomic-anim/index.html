@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+
+    <style>
+        .flipperBox{
+            diplay:inline-block; background: #444;
+            padding:20px; border-radius: 5px;
+            margin-bottom:5px;
+        }
+        .flipperBox *{
+            color: white;
+        }
+        #realworlddemo{
+            background:#333;
+            padding:50px;
+            height:40vh;
+            overflow:hidden;
+            position:relative;
+        }
+        #realworlddemo *{
+            color:white;
+        }
+        .text-right{
+            text-align: right;
+        }
+        .text-left{
+            text-align: left;
+        }
+        button{
+            background:transparent;
+            border:solid 1px black;
+            padding:10px;
+        }
+        button:hover{
+            opacity:0.6;
+            cursor:pointer;
+        }
+    </style>
+
+    <script src="src/atomic-anim-fadein.js" type="module"></script>
+    <script src="src/atomic-anim-fadeout.js" type="module"></script>
+    <script src="src/atomic-anim-flippers.js" type="module"></script>
+    <script src="src/atomic-anim-slideinleft.js" type="module"></script>
+    <script src="src/atomic-anim-attentionseekers.js" type="module"></script>
+    <script src="src/atomic-anim-bounceindown.js" type="module"></script>
+</head>
+<body>
+<div class="atomic-container">
+    <style>
+        .flipperBox{
+            diplay:inline-block; background: #444;
+            padding:20px; border-radius: 5px;
+            margin-bottom:5px;
+        }
+        .flipperBox *{
+            color: white;
+        }
+        #realworlddemo{
+            background:#333;
+            padding:50px;
+            height:40vh;
+            overflow:hidden;
+            position:relative;
+        }
+        #realworlddemo *{
+            color:white;
+        }
+        .text-right{
+            text-align: right;
+        }
+        .text-left{
+            text-align: left;
+        }
+    </style>
+    <div class="text-center margin-bottom">
+        <h1>Basic Animation</h1>
+        <h4>
+            Einfacher Ersatz für Animate.css</h4>
+
+        <ul style="text-align:left; width:300px; margin:auto">
+            <li>Events can be connected easily</li>
+            <li>Nur Themenbezogene styles werden geladen</li>
+        </ul>
+
+        <div class="text-center margin-bottom">
+            <strong>Event output:</strong>
+            <textarea id="output"></textarea>
+        </div>
+
+        <div style="min-height:90vh;">
+            <div class="text-center margin-bottom -big" style="margin-bottom:100px;">
+                <div class="margin-bottom anim-demo-1">
+                    <h4>Connect Animation-Events by chaining, using slot="events"</h4>
+                    <div id="realworlddemo" class="text-left">
+
+                        <atomic-anim-fadeout class="anim-component followup" id="atomic-out">
+
+                            <atomic-anim-fadein class="" id="atomic-af-start" fadeInDownBig begin hideBeforeStart>
+                                <h1 style="color:#009fff">INITAL ANIMATION TEXT</h1>
+                                <script slot="events" type="application/json">
+                                    [
+                                        {"event":{
+                                            "name": "anim.ended",
+                                            "delay": "100",
+                                            "target": "atomic-anim-fadein#next1",
+                                            "method": "play"
+                                        }}
+                                    ]
+                                </script>
+                            </atomic-anim-fadein>
+                            <atomic-anim-fadein class="anim-component followup" id="next1" hideBeforeStart>
+                                <h4>Followed by a connected anim</h4>
+                                <script slot="events" type="application/json">
+                                    [{"event":{
+                                        "name": "anim.ended",
+                                        "target": "atomic-anim-fadein#next2",
+                                        "method": "play"
+                                    }}]
+                                </script>
+                            </atomic-anim-fadein>
+                            <atomic-anim-fadein class="anim-component followup" id="next2" fadeInLeft="" hideBeforeStart>
+                                <p>And followed by an animated paragraph [fadeInLeft]</p>
+                                <p>Waits 2000 ms before Fading out</p>
+                                <script slot="events" type="application/json">
+                                    [{"event":{
+                                        "wait": "2000",
+                                        "name": "anim.ended",
+                                        "target": "atomic-anim-fadeout#atomic-out",
+                                        "method": "play"
+                                    }}]
+                                </script>
+                            </atomic-anim-fadein>
+
+                        </atomic-anim-fadeout>
+                        <br>
+                        <button class="toggle-animation" id="start-demo1" style="position:absolute; bottom:20px; right:20px; background:transparent; padding:10px; border:solid 1px white">
+                            restart Anim
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center margin-bottom -big" style="margin-bottom:100px;">
+            <div class="margin-bottom anim-demo-2">
+                <h2>Start when in view: [inViewStart]</h2>
+                <atomic-anim-flippers class="anim-component" inline="" inViewStart="">
+                    <div class="flipperBox">
+                        <h4>flip default Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipOutX="" inViewStart="">
+                    <div class="flipperBox">
+                        <h4>flipOutX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipOutY="" inViewStart="">
+                    <div class="flipperBox">
+                        <h4>flipOutX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipInX="" inViewStart="">
+                    <div class="flipperBox">
+                        <h4>flipInX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipInY="" inViewStart="">
+                    <div class="flipperBox">
+                        <h4>flipInY Anim</h4>
+                    </div>
+                </atomic-anim-flippers><br>
+                <br>
+                <button class="toggle-animation">
+                    Start Anim
+                </button>
+            </div>
+        </div>
+        <h2>Animation Overview</h2>
+        <div class="text-center margin-bottom">
+            <div class="margin-bottom anim-demo-2">
+                <h3>Flippers</h3>
+                <atomic-anim-flippers class="anim-component" inline="">
+                    <div class="flipperBox">
+                        <h4>flip default Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipOutX="">
+                    <div class="flipperBox">
+                        <h4>flipOutX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipOutY="">
+                    <div class="flipperBox">
+                        <h4>flipOutX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipInX="">
+                    <div class="flipperBox">
+                        <h4>flipInX Anim</h4>
+                    </div>
+                </atomic-anim-flippers>
+                <atomic-anim-flippers class="anim-component" inline="" flipInY="">
+                    <div class="flipperBox">
+                        <h4>flipInY Anim</h4>
+                    </div>
+                </atomic-anim-flippers><br>
+                <br/>
+                <button class="toggle-animation">
+                    Restart Anim
+                </button>
+            </div>
+        </div>
+        <div class="text-center margin-bottom">
+            <div class="margin-bottom anim-demo-2">
+                <h3>Attention Seekers</h3>
+                <atomic-anim-attentionseekers class="anim-component" inline="">
+                    <div class="flipperBox">
+                        <h4>flip default Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" flash="">
+                    <div class="flipperBox">
+                        <h4>flash Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" headShake="">
+                    <div class="flipperBox">
+                        <h4>headShake Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" heartBeat="">
+                    <div class="flipperBox">
+                        <h4>heartBeat Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" pulse="">
+                    <div class="flipperBox">
+                        <h4>pulse Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" shakeX="">
+                    <div class="flipperBox">
+                        <h4>shakeX Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" shakeY="">
+                    <div class="flipperBox">
+                        <h4>shakeY Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <atomic-anim-attentionseekers class="anim-component" inline="" wobble="">
+                    <div class="flipperBox">
+                        <h4>wobble Anim</h4>
+                    </div>
+                </atomic-anim-attentionseekers>
+                <br>
+                <button class="toggle-animation">
+                    Restart Anim
+                </button>
+                <style>
+                    .flipperBox{
+                        diplay:inline-block; background: #444;
+                        padding:20px; border-radius: 5px;
+                        margin-bottom:5px;
+                    }
+                    .flipperBox *{
+                        color: white;
+                        margin:0;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="text-center margin-bottom">
+            <div class="margin-bottom anim-demo-2">
+                <h3>FadeIn</h3>
+                <atomic-anim-fadein class="anim-component" inline>
+                    <div class="flipperBox">
+                        <h4>default Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline fadeInBottomLeft>
+                    <div class="flipperBox">
+                        <h4>fadeInBottomLeft Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline fadeInBottomRight>
+                    <div class="flipperBox">
+                        <h4>fadeInBottomRight Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInDown>
+                    <div class="flipperBox">
+                        <h4>fadeInDown Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInDownBig="">
+                    <div class="flipperBox">
+                        <h4>fadeInDownBig Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInLeft="">
+                    <div class="flipperBox">
+                        <h4>fadeInLeft Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInLeftBig="">
+                    <div class="flipperBox">
+                        <h4>fadeInLeftBig Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInRight="">
+                    <div class="flipperBox">
+                        <h4>fadeInRight Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+
+                <atomic-anim-fadein class="anim-component" inline="" fadeInRightBig="">
+                    <div class="flipperBox">
+                        <h4>fadeInRightBig Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInTopLeft="">
+                    <div class="flipperBox">
+                        <h4>fadeInTopLeft Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInTopRight="">
+                    <div class="flipperBox">
+                        <h4>fadeInTopRight Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInUp="">
+                    <div class="flipperBox">
+                        <h4>fadeInUp Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <atomic-anim-fadein class="anim-component" inline="" fadeInUpBig="">
+                    <div class="flipperBox">
+                        <h4>fadeInUpBig Anim</h4>
+                    </div>
+                </atomic-anim-fadein>
+                <br>
+                <button class="toggle-animation">
+                    Restart Anim
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+    <style>
+        atomic-button{
+            cursor:pointer;
+        }
+    </style>
+    <script>
+        let demo1FirstComp = document.querySelector("#atomic-af-start");
+        let demo1 = document.querySelector("#realworlddemo");
+        let followupComponents = demo1.querySelectorAll(".followup");
+        let allDemo1Components = demo1.querySelectorAll(".anim-component");
+        let startDemo1Bt = document.querySelector("#start-demo1");
+
+        startDemo1Bt.addEventListener("click", (comp)=>{
+            followupComponents.forEach((el)=>{
+                el.removeAttribute("ended");
+            });
+            demo1FirstComp.removeAttribute("begin");
+            demo1FirstComp.removeAttribute("ended");
+            demo1FirstComp.setAttribute("begin", "");
+        });
+        allDemo1Components.forEach((comp)=>{
+            comp.addEventListener("anim.started",()=>{
+                output.innerHTML = "anim started";
+            });
+            comp.addEventListener("anim.ended",()=>{
+                output.innerHTML = "anim ended";
+            });
+        });
+
+        let components = document.querySelectorAll(".anim-demo-2");
+        let output = document.querySelector("#output");
+        components.forEach((el)=>{
+            let bt = el.querySelector("button");
+            let comps = el.querySelectorAll(".anim-component");
+            comps.forEach((comp)=>{
+                bt.addEventListener("click", ()=>{
+                    comp.removeAttribute("begin");
+                    comp.removeAttribute("ended");
+                    comp.setAttribute("begin", "");
+                });
+                comp.addEventListener("anim.started",()=>{
+                    output.innerHTML = "anim started";
+                });
+                comp.addEventListener("anim.ended",()=>{
+                    output.innerHTML = "anim ended";
+                });
+            });
+
+        })
+    </script>
+</div>
+</body>
+</html>
